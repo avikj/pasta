@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/avikj/paste/issues"
   },
-  "homepage": "https://github.com/avikj/paste#readme"
+  "homepage": "https://github.com/avikj/paste#readme",
+  "dependencies": {
+    "vorpal": "^1.10.8"
+  }
 }
