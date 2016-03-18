@@ -1,0 +1,22 @@
+{
+  "name": "paste",
+  "version": "1.0.0",
+  "description": "A command line tool for pastebin.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avikj/paste.git"
+  },
+  "keywords": [
+    "pastebin"
+  ],
+  "author": "Avik Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avikj/paste/issues"
+  },
+  "homepage": "https://github.com/avikj/paste#readme"
+}
