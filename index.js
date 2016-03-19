@@ -43,8 +43,15 @@ function pasteIt(filename, title){
 			console.log("http://pastebin.com/"+data);
 		})
 		.fail(function(err){
-			console.log("There was an error creating the paste.");
-			console.log(err);
+			// if paste failed, try to paste as plain text
+			pastebin
+				.createPasteFromFile(filename, title?title:filename)
+				.then(function(data){
+					console.log("http://pastebin.com/"+data);
+				})
+				.fail(function(err){
+					console.log(err);
+				});
 		});
 	});
 }
