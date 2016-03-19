@@ -4,7 +4,7 @@
   "description": "A command line tool for pastebin.com",
   "author": "Avik Jain",
   "bin": {
-    "paste": "./index.js"
+    "pasta": "./index.js"
   },
   "main": "index.js",
   "scripts": {
