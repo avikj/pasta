@@ -8,7 +8,8 @@ program
 	.version('0.0.1')
 	.arguments('<filename> [title]')
 	.action(function(filename, title){
-		fs.stat(__dirname+'pastebinAPIKey.txt', function(err, stat){
+		console.log(__dirname);
+		fs.stat(__dirname+'/pastebinAPIKey.txt', function(err, stat){
 
 			// if the key has not already been saved
 			if(err){
@@ -16,7 +17,7 @@ program
 				prompt.get(['pastebinAPIKey'], function (err, result) {
 					if(err) throw err;
 					// write the key to pastebinAPIKey.txt
-					fs.writeFile(__dirname+'pastebinAPIKey.txt', result.pastebinAPIKey, function(err){
+					fs.writeFile(__dirname+'/pastebinAPIKey.txt', result.pastebinAPIKey, function(err){
 						if(err) throw err;
 						// paste the file
 						pasteIt(filename, title);
@@ -34,7 +35,7 @@ program
 
 // precondition: API key has already been saved in pastebinAPIKey.txt
 function pasteIt(filename, title){
-	fs.readFile(__dirname+'pastebinAPIKey.txt', 'utf8', function(err, data) {
+	fs.readFile(__dirname+'/pastebinAPIKey.txt', 'utf8', function(err, data) {
 	  if (err) throw err;
 	  pastebin = new PastebinAPI(data);
 	  pastebin
