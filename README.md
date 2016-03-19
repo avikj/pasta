@@ -1,6 +1,6 @@
 # pasta
 
-A command line tool for instantly creating public pastes from files on [pastebin.com](http://pastebin.com).
+A command line tool for instantly creating public pastes on [pastebin.com](http://pastebin.com).
 
 ## Installation
 
