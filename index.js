@@ -38,7 +38,7 @@ function pasteIt(filename, title){
 	  if (err) throw err;
 	  pastebin = new PastebinAPI(data);
 	  pastebin
-		.createPasteFromFile(filename, title?title:filename)
+		.createPasteFromFile(filename, title?title:filename, extractFileFormat(filename))
 		.then(function(data){
 			console.log("http://pastebin.com/"+data);
 		})
@@ -47,4 +47,13 @@ function pasteIt(filename, title){
 			console.log(err);
 		});
 	});
+}
+
+function extractFileFormat(filename){
+	if(filename.indexOf('.') == -1)
+		return null;
+	var ext =  filename.substring(filename.indexOf('.')+1);
+	if(ext == 'js')
+		return 'javascript';
+	return ext;
 }
