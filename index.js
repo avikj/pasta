@@ -8,7 +8,6 @@ program
 	.version('0.0.1')
 	.arguments('<filename> [title]')
 	.action(function(filename, title){
-		console.log(__dirname);
 		fs.stat(__dirname+'/pastebinAPIKey.txt', function(err, stat){
 
 			// if the key has not already been saved
