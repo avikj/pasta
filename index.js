@@ -5,7 +5,7 @@ var program = require('commander'),
 	PastebinAPI = require('pastebin-js');
 
 program
-	.version('1.0.0')
+	.version('0.0.1')
 	.arguments('<filename> [title]')
 	.action(function(filename, title){
 		fs.stat(__dirname+'pastebinAPIKey.txt', function(err, stat){
