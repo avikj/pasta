@@ -7,7 +7,7 @@ A command line tool for instantly creating public pastes on [pastebin.com](http:
 Clone the respository from Github and install the necessary packages.
 
 ```shell
-git clone https://github.com/avikjain/pasta.git
+git clone https://github.com/avikj/pasta.git
 cd pasta
 npm install
 ```
