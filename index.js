@@ -13,7 +13,12 @@ program
 			// if the key has not already been saved
 			if(err){
 				prompt.start();	//prompt the user for their key
-				prompt.get(['pastebinAPIKey'], function (err, result) {
+				prompt.get([
+					{
+						name: 'pastebinAPIKey',
+				      		message: 'Please enter your Pastebin developer API key',
+				       		required: true
+					}], function (err, result) {
 					if(err) throw err;
 					// write the key to pastebinAPIKey.txt
 					fs.writeFile(__dirname+'/pastebinAPIKey.txt', result.pastebinAPIKey, function(err){
