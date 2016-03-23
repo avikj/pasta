@@ -39,7 +39,9 @@ program
 // precondition: API key has already been saved in pastebinAPIKey.txt
 function pasteIt(filename, title){
 	fs.readFile(__dirname+'/pastebinAPIKey.txt', 'utf8', function(err, data) {
-	  if (err) return console.log(err);
+	  if (err){
+		return console.log("There was an error reading the API key file.");
+	  }
 	  pastebin = new PastebinAPI(data);
 	  pastebin
 		.createPasteFromFile(filename, title?title:filename, extractFileFormat(filename))
@@ -47,7 +49,15 @@ function pasteIt(filename, title){
 			console.log("http://pastebin.com/"+data);
 		})
 		.fail(function(err){
-			console.log(err);			
+			if(err.toString().indexOf('api_dev_key')!=-1){
+				fs.unlink(__dirname+'/pastebinAPIKey.txt', function(err){
+					if(err) throw err;
+				});
+				console.log('Error: The provided API key is invalid.');	
+
+			}else{
+				console.log(err);
+			}
 		});
 	});
 }
