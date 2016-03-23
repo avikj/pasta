@@ -3,7 +3,7 @@ var program = require('commander'),
 	prompt = require('prompt'),
 	fs = require('fs'),
 	PastebinAPI = require('pastebin-js');
-
+var fileTypes = JSON.parse(fs.readFileSync(__dirname+'/fileTypes.json', 'utf8')).types;
 program
 	.version('0.0.1')
 	.arguments('<filename> [title]')
@@ -19,10 +19,9 @@ program
 				      		message: 'Please enter your Pastebin developer API key',
 				       		required: true
 					}], function (err, result) {
-					if(err) throw err;
-					// write the key to pastebinAPIKey.txt
+					if(err) return console.log(err);					// write the key to pastebinAPIKey.txt
 					fs.writeFile(__dirname+'/pastebinAPIKey.txt', result.pastebinAPIKey, function(err){
-						if(err) throw err;
+						if(err) return console.log(err);
 						// paste the file
 						pasteIt(filename, title);
 					});
@@ -40,7 +39,7 @@ program
 // precondition: API key has already been saved in pastebinAPIKey.txt
 function pasteIt(filename, title){
 	fs.readFile(__dirname+'/pastebinAPIKey.txt', 'utf8', function(err, data) {
-	  if (err) throw err;
+	  if (err) return console.log(err);
 	  pastebin = new PastebinAPI(data);
 	  pastebin
 		.createPasteFromFile(filename, title?title:filename, extractFileFormat(filename))
@@ -48,24 +47,21 @@ function pasteIt(filename, title){
 			console.log("http://pastebin.com/"+data);
 		})
 		.fail(function(err){
-			// if paste failed, try to paste as plain text
-			pastebin
-				.createPasteFromFile(filename, title?title:filename)
-				.then(function(data){
-					console.log("http://pastebin.com/"+data);
-				})
-				.fail(function(err){
-					console.log(err);
-				});
+			console.log(err);			
 		});
 	});
 }
 
 function extractFileFormat(filename){
+
 	if(filename.indexOf('.') == -1)
 		return null;
 	var ext =  filename.substring(filename.indexOf('.')+1);
 	if(ext == 'js')
-		return 'javascript';
+		ext = 'javascript';
+	if(fileTypes.indexOf(ext) == -1){
+		console.log("Could not detect file type of "+filename+". Pasting as plain text.");
+		return null;
+	}
 	return ext;
 }
