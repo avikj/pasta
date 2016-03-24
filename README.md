@@ -39,6 +39,5 @@ $ pasta index.js "index.js for paste"
 NOTE: Pastebin may limit the number of pastes you create in a given time period due to account restrictions.
 
 ## Todo
- * improve error handling
  * allow users to use their pastebin accounts
  * publish on npm
