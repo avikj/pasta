@@ -5,7 +5,7 @@ var program = require('commander'),
 	PastebinAPI = require('pastebin-js');
 var fileTypes = JSON.parse(fs.readFileSync(__dirname+'/fileTypes.json', 'utf8')).types;
 program
-	.version('0.0.1')
+	.version('1.0.1')
 	.arguments('<filename> [title]')
 	.action(function(filename, title){
 		fs.stat(__dirname+'/pastebinAPIKey.txt', function(err, stat){
