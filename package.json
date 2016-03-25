@@ -1,6 +1,6 @@
 {
   "name": "pastabin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command line tool for pastebin.com",
   "author": "Avik Jain <avik@avikjain.me> (http://www.avikjain.me)",
   "bin": {
