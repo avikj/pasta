@@ -4,16 +4,9 @@ A command line tool for instantly creating public pastes on [pastebin.com](http:
 
 ## Installation
 
-Clone the respository from Github and install the necessary packages.
-
+Install globally using npm.
 ```shell
-git clone https://github.com/avikj/pastabin.git
-cd pastabin
-npm install
-```
-Next, link the module to make the 'pasta' command available. You may have to use sudo or grant administrator permissions to do so.
-```shell
-npm link
+npm install -g pastabin
 ```
 
 ## Usage
