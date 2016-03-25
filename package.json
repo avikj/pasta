@@ -1,5 +1,5 @@
 {
-  "name": "pasta",
+  "name": "pastabin",
   "version": "1.0.0",
   "description": "A command line tool for pastebin.com",
   "author": "Avik Jain <avik@avikjain.me> (http://www.avikjain.me)",
@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/avikj/pasta.git"
+    "url": "git+https://github.com/avikj/pastabin.git"
   },
   "keywords": [
     "pastebin"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/avikj/paste/issues"
+    "url": "https://github.com/avikj/pastabin/issues"
   },
-  "homepage": "https://github.com/avikj/paste#readme",
+  "homepage": "https://github.com/avikj/pastabin#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "pastebin-js": "^0.4.0",
