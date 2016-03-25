@@ -15,7 +15,9 @@
     "url": "git+https://github.com/avikj/pastabin.git"
   },
   "keywords": [
-    "pastebin"
+    "pastebin",
+    "terminal",
+    "CLI"
   ],
   "license": "MIT",
   "bugs": {
